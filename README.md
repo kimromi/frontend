@@ -1,4 +1,4 @@
 jQuery
 ======
 
-to test jQuery code
+to test jQuery and javascript code.
