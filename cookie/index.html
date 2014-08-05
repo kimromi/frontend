@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="utf-8">
+<title>cookie test</title>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<script src="jquery-1.11.0.min.js"></script>
+<script src="jquery.cookie.js"></script>
+<script>
+
+	$(function () {
+		
+	    var canUseCookie = (navigator.cookieEnabled) ? "OK" : "NG"
+		$("#cookie-enable").text(canUseCookie);
+	    
+		$("#save").click(function () {
+			var text = $("#cookie-text").val();
+			$.cookie('cookie', text, { expires:1, path:'/'});
+	        alert("save!");
+		});
+		
+		$("#load").click(function () {
+			var cookie = $.cookie('cookie');
+			alert(cookie);
+			$("#cookie-output").val(cookie);
+		});
+
+	});
+
+</script>
+</head>
+
+<body>
+
+	cookie:<label id="cookie-enable"></label>
+	<br /><br />
+	<input type="text" id="cookie-text"/>
+	<input type="button" id="save" value="cookie save"/>
+	<br /><br />
+	<input type="text" id="cookie-output"/>
+	<input type="button" id="load" value="load"/>
+
+</body>
+</html>
