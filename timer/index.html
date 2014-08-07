@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="utf-8">
+<title>timer</title>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<script src="jquery-1.11.0.min.js"></script>
+<script>
+
+	$(function () {
+		$("#start").click(function () {
+			startTimer();
+			timeout(testTimer1, "hour1", "0", 0);
+		    timeout(testTimer2, "hour2", "0", 200);
+		    timeout(testTimer3, "minute1", "5", 400);
+		    timeout(testTimer4, "minute2", "2", 600);
+		    timeout(testTimer5, "second1", "3", 800);
+		    timeout(testTimer6, "second2", "7", 1000);
+		});
+	});
+
+	function timeout(timer, id, text, delay){
+		setTimeout(function(){
+	        clearInterval(timer);
+			$("#" + id).text(text);
+	    }, delay);
+	}
+
+	function startTimer(){
+		testTimer1 = setInterval(function(){ $("#hour1").text(random()); },1);
+		testTimer2 = setInterval(function(){ $("#hour2").text(random()); },1);
+		testTimer3 = setInterval(function(){ $("#minute1").text(random()); },1);
+		testTimer4 = setInterval(function(){ $("#minute2").text(random()); },1);
+		testTimer5 = setInterval(function(){ $("#second1").text(random()); },1);
+		testTimer6 = setInterval(function(){ $("#second2").text(random()); },1);
+	}
+
+	function random(){
+		return Math.floor(Math.random() * 6);
+	}
+	
+</script>
+</head>
+
+<body>
+
+	<span id="hour1">-</span><span id="hour2">-</span>:
+	<span id="minute1">-</span><span id="minute2">-</span>:
+	<span id="second1">-</span><span id="second2">-</span><br />
+	<input type="button" id="start" value="start"/>
+	
+</body>
+</html>
