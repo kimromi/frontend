@@ -1,4 +1,4 @@
-jQuery
+frontend
 ======
 
-to test jQuery and javascript code.
+to test frontend
