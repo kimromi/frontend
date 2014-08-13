@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scrollTop</title>
+</head>
+<body>
+	<h1>scrolltop</h1>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<p>hello!</p>
+	<div id="gototop" style="position: fixed; right: 5px; bottom: 5px;">
+		<a href="#">▲</a>
+	</div>
+	<div id="scroll" style="position: fixed; top: 5px; right: 5px;"></div>
+
+
+	<script src="jquery-1.11.0.min.js"></script>
+	<script>
+		$(function() {
+			$("#gototop").hide();
+
+			$(window).scroll(function() {
+				var scroll = $(this).scrollTop();
+				$("#scroll").text(scroll);
+				if (scroll > 100) {
+					$("#gototop").fadeIn();
+				} else {
+					$("#gototop").fadeOut();
+				}
+			});
+
+			$("#gototop").on('click', function() {
+				$("body, html").animate({
+					scrollTop: 0
+				}, 'slow');
+				return false;
+			});
+		});
+	</script>
+</body>
+</html>
