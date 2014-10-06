@@ -1,25 +1,23 @@
 $(function() {
     marked.setOptions({
-    	langPrefix: ''
+        langPrefix: ''
     });
 
-
-    $('#edit textarea').keyup(function() {
-    	  var md = escape($(this).val());
+    $('#edit').keyup(function() {
+        var md = sanitize($(this).val());
         var html = marked(md);
         $('#preview').html(html);
         $('#preview pre code').each(function(i, e) {
-        		$(e).text(unescape($(e).text()));
+            $(e).text(unsanitize($(e).text()));
             hljs.highlightBlock(e, e.className);
         });
     });
-    $('#edit textarea').keyup();
 
 });
 
-function escape(html) {
-	return $('<div />').text(html).html();
+function sanitize(html) {
+    return $('<div />').text(html).html();
 }
-function unescape(html) {
-	return $('<div />').html(html).text();
+function unsanitize(html) {
+    return $('<div />').html(html).text();
 }
