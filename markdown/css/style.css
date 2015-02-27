@@ -34,3 +34,9 @@ div#preview {
 	padding: 10px;
 	background-color: #EEE;
 }
+
+div#preview blockquote{
+   margin-left: 0px;
+   padding-left: 20px;
+   border-left: 2px solid #CCC;
+}
