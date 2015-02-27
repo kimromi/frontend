@@ -16,7 +16,8 @@ $(function() {
 });
 
 function sanitize(html) {
-    return $('<div />').text(html).html();
+    return $('<div />').text(html).html().replace(/&gt;/g, ">");
+
 }
 function unsanitize(html) {
     return $('<div />').html(html).text();
